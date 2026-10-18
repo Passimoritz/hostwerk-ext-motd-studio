@@ -1,0 +1,17 @@
+{
+  "server": "Server",
+  "noServer": "No Minecraft server yet.",
+  "text": "Description (up to 2 lines)",
+  "preview": "Preview in the server list",
+  "save": "Save",
+  "saved": "MOTD saved",
+  "restartHint": "Running – takes effect after the next restart.",
+  "ok": "Fits the server list.",
+  "problem.lines": "More than 2 lines – Minecraft only shows the first two.",
+  "problem.long": "Line {line} is {n} characters long – the server list cuts it off.",
+  "problem.unknown": "Unknown § code – it shows up as text.",
+  "codesIntro": "Codes start with §. A colour resets formats, §r resets everything.",
+  "color.0": "Black", "color.1": "Dark blue", "color.2": "Dark green", "color.3": "Dark aqua", "color.4": "Dark red", "color.5": "Purple", "color.6": "Gold", "color.7": "Grey",
+  "color.8": "Dark grey", "color.9": "Blue", "color.a": "Green", "color.b": "Aqua", "color.c": "Red", "color.d": "Pink", "color.e": "Yellow", "color.f": "White",
+  "fmt.bold": "Bold", "fmt.italic": "Italic", "fmt.underline": "Underlined", "fmt.strike": "Strikethrough", "fmt.obfuscated": "Obfuscated (changing characters)", "fmt.reset": "Reset"
+}

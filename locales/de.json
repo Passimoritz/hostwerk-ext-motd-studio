@@ -1,0 +1,17 @@
+{
+  "server": "Server",
+  "noServer": "Noch kein Minecraft-Server angelegt.",
+  "text": "Beschreibung (bis zu 2 Zeilen)",
+  "preview": "Vorschau in der Serverliste",
+  "save": "Speichern",
+  "saved": "MOTD gespeichert",
+  "restartHint": "Läuft gerade – wirkt nach dem nächsten Neustart.",
+  "ok": "Passt in die Serverliste.",
+  "problem.lines": "Mehr als 2 Zeilen – Minecraft zeigt nur die ersten beiden.",
+  "problem.long": "Zeile {line} ist {n} Zeichen lang – in der Serverliste wird sie abgeschnitten.",
+  "problem.unknown": "Unbekannter §-Code – er erscheint als Text.",
+  "codesIntro": "Codes beginnen mit §. Eine Farbe setzt Formate zurück, §r setzt alles zurück.",
+  "color.0": "Schwarz", "color.1": "Dunkelblau", "color.2": "Dunkelgrün", "color.3": "Dunkeltürkis", "color.4": "Dunkelrot", "color.5": "Lila", "color.6": "Gold", "color.7": "Grau",
+  "color.8": "Dunkelgrau", "color.9": "Blau", "color.a": "Grün", "color.b": "Türkis", "color.c": "Rot", "color.d": "Pink", "color.e": "Gelb", "color.f": "Weiß",
+  "fmt.bold": "Fett", "fmt.italic": "Kursiv", "fmt.underline": "Unterstrichen", "fmt.strike": "Durchgestrichen", "fmt.obfuscated": "Verschleiert (wechselnde Zeichen)", "fmt.reset": "Zurücksetzen"
+}

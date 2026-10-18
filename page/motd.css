@@ -1,0 +1,10 @@
+/* hostwerk-allow: colors, fonts – Nachbildung der Minecraft-Serverliste, sieht im Spiel immer so aus (hell und dunkel gleich) */
+/* Nur was Hostwerks Baukasten nicht hat: Vorschau wie die Serverliste im Spiel, Farbfelder */
+.motd-grid { gap: 14px; }
+.motd-tools { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+.swatch { width: 20px; height: 20px; border-radius: 5px; border: 1px solid var(--line); cursor: pointer; padding: 0; }
+.motd-box { display: flex; gap: 10px; align-items: flex-start; padding: 10px; border-radius: 6px; background: #1e1e1e; font-family: var(--mono, monospace); }
+.motd-icon { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 4px; background: #3c3c3c; color: #fff; font-weight: 700; flex: none; }
+.motd-name { color: #fff; margin-bottom: 2px; }
+.motd-line { min-height: 1.3em; white-space: pre; overflow: hidden; }
+.motd-players { color: #aaa; font-size: 12px; }
