@@ -1,3 +1,5 @@
+![MOTD studio](banner.svg)
+
 # MOTD studio
 
 Design your Minecraft server's description in the server list with colours and formats – with a preview like in the game.

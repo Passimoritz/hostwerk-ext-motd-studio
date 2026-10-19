@@ -1,3 +1,5 @@
+![MOTD-Studio](banner.svg)
+
 # MOTD-Studio
 
 Die Beschreibung deines Minecraft-Servers in der Serverliste mit Farben und Formaten gestalten – mit Vorschau wie im Spiel.

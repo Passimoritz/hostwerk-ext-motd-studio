@@ -2,31 +2,82 @@
   "$schema": "https://raw.githubusercontent.com/Passimoritz/hostwerk-public/main/sdk/manifest.schema.json",
   "id": "motd-studio",
   "color": "#16a34a",
-  "name": { "de": "MOTD-Studio", "en": "MOTD studio" },
-  "description": { "de": "Die Beschreibung deines Minecraft-Servers in der Serverliste mit Farben und Formaten gestalten – mit Vorschau wie im Spiel. Als eigener Reiter auf jeder Minecraft-Seite.", "en": "Design your Minecraft server's description in the server list with colours and formats – with a preview like in the game. As its own tab on every Minecraft page." },
-  "permissions": ["read:minecraft", "change:minecraft"],
+  "category": "games",
+  "name": {
+    "de": "MOTD-Studio",
+    "en": "MOTD studio"
+  },
+  "description": {
+    "de": "Die Beschreibung deines Minecraft-Servers in der Serverliste mit Farben und Formaten gestalten – mit Vorschau wie im Spiel. Als eigener Reiter auf jeder Minecraft-Seite.",
+    "en": "Design your Minecraft server's description in the server list with colours and formats – with a preview like in the game. As its own tab on every Minecraft page."
+  },
+  "permissions": [
+    "read:minecraft",
+    "change:minecraft"
+  ],
   "page": {
-    "title": { "de": "MOTD-Studio", "en": "MOTD studio" },
-    "description": { "de": "Beschreibung in der Serverliste gestalten – Farben, Formate, Vorschau. Speichern fragt vorher.", "en": "Design the description in the server list – colours, formats, preview. Saving asks first." },
+    "title": {
+      "de": "MOTD-Studio",
+      "en": "MOTD studio"
+    },
+    "description": {
+      "de": "Beschreibung in der Serverliste gestalten – Farben, Formate, Vorschau. Speichern fragt vorher.",
+      "en": "Design the description in the server list – colours, formats, preview. Saving asks first."
+    },
     "icon": "sparkles",
     "file": "page/index.html",
     "tabs": [
-      { "id": "editor", "title": { "de": "Editor", "en": "Editor" }, "icon": "wand" },
-      { "id": "codes", "title": { "de": "Farbcodes", "en": "Colour codes" }, "icon": "list" }
+      {
+        "id": "editor",
+        "title": {
+          "de": "Editor",
+          "en": "Editor"
+        },
+        "icon": "wand"
+      },
+      {
+        "id": "codes",
+        "title": {
+          "de": "Farbcodes",
+          "en": "Colour codes"
+        },
+        "icon": "list"
+      }
     ]
   },
   "contributes": {
     "tabs": [
-      { "id": "motd", "title": { "de": "MOTD", "en": "MOTD" }, "icon": "sparkles", "on": "minecraft", "file": "page/tab.html" }
+      {
+        "id": "motd",
+        "title": {
+          "de": "MOTD",
+          "en": "MOTD"
+        },
+        "icon": "sparkles",
+        "on": "minecraft",
+        "file": "page/tab.html"
+      }
     ],
     "actions": [
-      { "id": "edit", "title": { "de": "MOTD gestalten …", "en": "Design MOTD …" }, "icon": "sparkles", "on": ["minecraft", "palette"] }
+      {
+        "id": "edit",
+        "title": {
+          "de": "MOTD gestalten …",
+          "en": "Design MOTD …"
+        },
+        "icon": "sparkles",
+        "on": [
+          "minecraft",
+          "palette"
+        ]
+      }
     ]
   },
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Hostwerk",
   "homepage": "https://github.com/Passimoritz/hostwerk-ext-motd-studio",
   "license": "MIT",
   "icon": "icon.svg",
+  "banner": "banner.svg",
   "hostwerk": ">=2.9.0"
 }
