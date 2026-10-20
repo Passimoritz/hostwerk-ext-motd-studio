@@ -1,3 +1,7 @@
+## 1.1.1
+
+- Accessibility: the server list has a name for screen readers right from the start. / Barrierefreiheit: die Server-Auswahl hat von Anfang an einen Namen für Bildschirmleser.
+
 ## 1.1.0
 
 - New animated icon and a banner for Hostwerk's new extension page, category “games”. / Neues bewegtes Symbol und ein Banner für die neue Erweiterungsseite, Kategorie „games“.
