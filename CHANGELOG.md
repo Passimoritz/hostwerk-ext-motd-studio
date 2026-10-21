@@ -1,3 +1,13 @@
+## 1.2.0
+
+- Server icon: pick a picture, crop it (zoom, move) and save it as 64 × 64 PNG – shown in the preview right away. / Server-Symbol: Bild wählen, zuschneiden (vergrößern, verschieben) und als PNG mit 64 × 64 Pixeln speichern – sofort in der Vorschau.
+- Templates and “Center lines” (with the widths of Minecraft’s font). / Vorlagen und „Zeilen zentrieren“ (mit den Zeichenbreiten der Minecraft-Schrift).
+- “Restart now” after saving on a running server (new permission `control:services`, asks first). / „Jetzt neu starten“ nach dem Speichern bei laufendem Server (neues Recht `control:services`, fragt vorher).
+- The server list stays live (new servers, started/stopped) and keeps what you typed. / Die Serverliste bleibt live (neue Server, gestartet/gestoppt) und behält, was du getippt hast.
+- §k (obfuscated) is in the toolbar now; colour buttons and formats have names for screen readers. / §k (verschleiert) steht jetzt in der Werkzeugleiste; Farbknöpfe und Formate haben Namen für Bildschirmleser.
+- Error state with “Try again” instead of a skeleton that never goes away. / Fehlerzustand mit „Erneut versuchen“ statt ewigem Skelett.
+- Polling pauses while the page is hidden; sizes from the design scale; the page sits next to Minecraft in the sidebar; other extensions may add tabs. The release packs everything except the repository tooling. Needs Hostwerk 2.11. / Abfragen pausieren bei verstecktem Reiter; Größen aus der Design-Skala; die Seite steht in der Seitenleiste bei Minecraft; andere Erweiterungen dürfen Reiter ergänzen. Das Release packt alles außer dem Repo-Werkzeug. Braucht Hostwerk 2.11.
+
 ## 1.1.1
 
 - Accessibility: the server list has a name for screen readers right from the start. / Barrierefreiheit: die Server-Auswahl hat von Anfang an einen Namen für Bildschirmleser.

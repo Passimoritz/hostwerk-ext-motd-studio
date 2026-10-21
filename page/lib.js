@@ -69,5 +69,60 @@
     return { text: s.slice(0, a) + piece + s.slice(b), cursor: a + piece.length };
   }
 
-  return { COLORS, FORMATS, MAX_LINE, normalize, parse, plain, check, toProperty, insert };
+  /* ---------- Zentrieren: Breite wie Minecrafts Standardschrift (Pixel je Zeichen inkl. Abstand) ---------- */
+  const NARROW = { '!': 2, '.': 2, ',': 2, ':': 2, ';': 2, '|': 2, i: 2, "'": 3, '`': 3, l: 3, I: 4, t: 4, ' ': 4, '"': 4, '(': 4, ')': 4, '[': 4, ']': 4, '{': 4, '}': 4, '*': 4, f: 5, k: 5, '<': 5, '>': 5, '@': 7, '~': 7 };
+  const LIST_WIDTH = 270; // Platz für die Beschreibung in der Serverliste (GUI-Maßstab 1)
+  /** Breite einer Zeile in Pixeln – Codes zählen nicht, fett macht jedes Zeichen 1 Pixel breiter. */
+  function width(line) {
+    const segs = parse(String(line || '').split('\n')[0])[0] || [];
+    let w = 0;
+    for (const s of segs) for (const ch of s.text) w += (NARROW[ch] || 6) + (s.bold ? 1 : 0);
+    return w;
+  }
+  /**
+   * Jede Zeile mit Leerzeichen davor mittig setzen (vorhandene Einrückung wird ersetzt). Codes am Zeilenanfang bleiben
+   * vorn, damit die Leerzeichen nicht fett/unterstrichen werden.
+   */
+  function center(text) {
+    return normalize(text).split('\n').slice(0, 2).map((line) => {
+      const m = line.match(/^((?:§[0-9a-fk-or])*)\s*/i);
+      const codes = m ? m[1] : '';
+      const rest = line.slice(m ? m[0].length : 0).replace(/\s+$/, '');
+      const free = LIST_WIDTH - width(codes + rest);
+      const pad = free > 0 ? Math.floor(free / 2 / 4) : 0;
+      return ' '.repeat(pad) + codes + rest;
+    }).join('\n');
+  }
+  /** Vorlagen für schöne MOTDs – {name} wird durch den Servernamen ersetzt. */
+  const TEMPLATES = [
+    { id: 'welcome', text: '§6§l{name}§r\n§7Willkommen – §aschau rein!' },
+    { id: 'survival', text: '§2§l✦ {name} ✦§r\n§aSurvival §7· §eFreunde §7· §bkein Reset' },
+    { id: 'event', text: '§d§l★ EVENT HEUTE ★§r\n§fAb §e20 Uhr §fauf §b{name}' },
+    { id: 'maintenance', text: '§c§lWartung§r\n§7Gleich wieder da – danke für die Geduld!' },
+    { id: 'creative', text: '§b§l{name}§r §7| §dKreativ\n§7Bauen ohne Grenzen' },
+  ];
+  const TEMPLATES_EN = { welcome: '§6§l{name}§r\n§7Welcome – §acome on in!', survival: '§2§l✦ {name} ✦§r\n§aSurvival §7· §eFriends §7· §bno reset', event: '§d§l★ EVENT TONIGHT ★§r\n§fFrom §e8 pm §fon §b{name}', maintenance: '§c§lMaintenance§r\n§7Back soon – thanks for your patience!', creative: '§b§l{name}§r §7| §dCreative\n§7Build without limits' };
+  /** Vorlage in der Sprache der Oberfläche, mit eingesetztem Namen (ohne § im Namen). */
+  function template(id, name, lang = 'de') {
+    const tpl = TEMPLATES.find((x) => x.id === id);
+    if (!tpl) return '';
+    const text = lang === 'en' ? TEMPLATES_EN[id] : tpl.text;
+    return text.replace(/\{name\}/g, String(name || 'Server').replace(/§/g, '').slice(0, 30));
+  }
+
+  /* ---------- Server-Symbol: Bild quadratisch zuschneiden (64×64, wie Minecraft es verlangt) ---------- */
+  /**
+   * Ausschnitt im Quellbild für Zoom (1 = ganze kurze Seite) und Verschiebung x/y (-1 … 1).
+   * → { sx, sy, size } in Pixeln des Quellbilds
+   */
+  function crop(w, h, zoom = 1, x = 0, y = 0) {
+    const short = Math.min(w, h);
+    const size = Math.max(1, Math.round(short / Math.max(1, zoom)));
+    const clamp = (v) => Math.max(-1, Math.min(1, Number(v) || 0));
+    const sx = Math.round(((w - size) / 2) * (1 + clamp(x)));
+    const sy = Math.round(((h - size) / 2) * (1 + clamp(y)));
+    return { sx, sy, size };
+  }
+
+  return { COLORS, FORMATS, MAX_LINE, LIST_WIDTH, normalize, parse, plain, check, toProperty, insert, width, center, TEMPLATES, template, crop };
 }));

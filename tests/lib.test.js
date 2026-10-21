@@ -31,3 +31,42 @@ test('Einfügen: Code an der Stelle oder Auswahl einfassen', () => {
   assert.deepStrictEqual(M.insert('Hallo', 5, 5, 'a'), { text: 'Hallo§a', cursor: 7 });
   assert.deepStrictEqual(M.insert('Hallo Welt', 6, 10, 'l'), { text: 'Hallo §lWelt§r', cursor: 14 });
 });
+
+test('§k gehört zu den Formaten (Werkzeugleiste und Tabelle)', () => {
+  assert.strictEqual(M.FORMATS.k, 'obfuscated');
+  assert.strictEqual(M.parse('§kGeheim')[0][0].obfuscated, true);
+});
+
+test('Breite wie Minecrafts Schrift: Codes zählen nicht, fett ist breiter', () => {
+  assert.strictEqual(M.width('aaa'), 18);
+  assert.strictEqual(M.width('§aaaa'), 18);
+  assert.strictEqual(M.width('§laaa'), 21);
+  assert.strictEqual(M.width('il!'), 7);
+});
+
+test('Zentrieren: Leerzeichen davor, Codes bleiben vorn, alte Einrückung wird ersetzt', () => {
+  const c = M.center('§6§lHallo\n   §7Welt');
+  const [a, b] = c.split('\n');
+  assert.match(a, /^ +§6§lHallo$/); assert.match(b, /^ +§7Welt$/);
+  const pad = (s) => s.match(/^ */)[0].length;
+  assert.strictEqual(pad(a), Math.floor((M.LIST_WIDTH - M.width('§6§lHallo')) / 8));
+  assert.strictEqual(M.center(M.center('§aX')), M.center('§aX'), 'zweimal zentrieren ändert nichts');
+  assert.strictEqual(M.center('x'.repeat(80)).startsWith('x'), true, 'zu lange Zeile bleibt links');
+});
+
+test('Vorlagen: Name eingesetzt, beide Sprachen, ohne § aus dem Namen', () => {
+  for (const tpl of M.TEMPLATES) {
+    const de = M.template(tpl.id, '§cFreunde', 'de'); const en = M.template(tpl.id, 'Friends', 'en');
+    assert.ok(de && en, tpl.id);
+    assert.deepStrictEqual(M.check(de).filter((p) => p.code !== 'long'), [], `${tpl.id}: gültig`);
+    assert.ok(!de.includes('{name}') && !/§cFreunde/.test(de));
+  }
+  assert.strictEqual(M.template('gibtsnicht', 'x'), '');
+});
+
+test('Symbol-Zuschnitt: quadratisch, mittig, Zoom und Verschiebung bleiben im Bild', () => {
+  assert.deepStrictEqual(M.crop(200, 100), { sx: 50, sy: 0, size: 100 });
+  assert.deepStrictEqual(M.crop(200, 100, 2), { sx: 75, sy: 25, size: 50 });
+  assert.deepStrictEqual(M.crop(200, 100, 2, -1, 1), { sx: 0, sy: 50, size: 50 });
+  assert.deepStrictEqual(M.crop(200, 100, 1, 5, 0), { sx: 100, sy: 0, size: 100 }, 'Verschiebung begrenzt');
+});
