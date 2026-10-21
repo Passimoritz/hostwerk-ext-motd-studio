@@ -1,4 +1,4 @@
-/* hostwerk-allow: colors, fonts – Nachbildung der Minecraft-Serverliste, sieht im Spiel immer so aus (hell und dunkel gleich) */
+/* hostwerk-allow: colors, fonts – Nachbildung der Minecraft-Serverliste: Farben wie im Spiel (dunkler Grund wie im Client, heller zum Vergleich) */
 /* Nur was Hostwerks Baukasten nicht hat: Vorschau wie die Serverliste im Spiel, Farbfelder, Symbol-Zuschnitt */
 .motd-grid { gap: var(--sp-3); }
 .motd-tools { display: flex; flex-wrap: wrap; gap: var(--sp-1); align-items: center; }
@@ -15,3 +15,13 @@
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .server-row { margin-bottom: var(--sp-3); }
 .server-row .select { width: auto; }
+/* 1.3: Vorschau auf hellem Grund, Varianten, Abschnitt in der Minecraft-Übersicht */
+.motd-box.motd-light { background: #f2f2f2; }
+.motd-box.motd-light .motd-name { color: #1e1e1e; }
+.motd-box.motd-light .motd-players { color: #555; }
+.motd-variants { flex-wrap: wrap; gap: var(--sp-1); }
+.motd-tools .label { margin: 0 var(--sp-1) 0 0; }
+.motd-more input[type="color"] { width: 32px; height: 28px; padding: 0; border: 1px solid var(--line); border-radius: var(--r-sm); background: none; cursor: pointer; }
+.motd-embed { padding: 0; }
+.motd-section { padding: var(--sp-3) var(--sp-4); gap: var(--sp-2); }
+.motd-section-foot { gap: var(--sp-2); flex-wrap: wrap; }

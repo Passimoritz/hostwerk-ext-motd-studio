@@ -8,13 +8,15 @@
     "en": "MOTD studio"
   },
   "description": {
-    "de": "Die Beschreibung deines Minecraft-Servers in der Serverliste mit Farben, Formaten und Vorlagen gestalten – mit Vorschau wie im Spiel, Server-Symbol zum Zuschneiden und Neustart per Klick. Als eigener Reiter auf jeder Minecraft-Seite.",
-    "en": "Design your Minecraft server’s description in the server list with colours, formats and templates – with a preview like in the game, a server icon to crop and a restart with one click. As its own tab on every Minecraft page."
+    "de": "Die Beschreibung deines Minecraft-Servers in der Serverliste gestalten – mit Farben, Verläufen, Platzhaltern (Name, Version, nächster Neustart …), mehreren Varianten, Vorlagen und einer Vorschau wie im Spiel. Direkt in der Übersicht jedes Minecraft-Servers, dazu ein großer Editor.",
+    "en": "Design your Minecraft server’s description in the server list – with colours, gradients, placeholders (name, version, next restart …), several variants, templates and a preview like in the game. Right in the overview of every Minecraft server, plus a big editor."
   },
   "permissions": [
     "read:minecraft",
+    "read:tasks",
     "change:minecraft",
-    "control:services"
+    "control:services",
+    "storage"
   ],
   "page": {
     "title": {
@@ -52,6 +54,19 @@
     }
   },
   "contributes": {
+    "sections": [
+      {
+        "id": "motd",
+        "title": {
+          "de": "MOTD-Studio",
+          "en": "MOTD studio"
+        },
+        "icon": "sparkles",
+        "on": "mc.overview",
+        "file": "page/section.html",
+        "height": 720
+      }
+    ],
     "tabs": [
       {
         "id": "motd",
@@ -61,7 +76,8 @@
         },
         "icon": "sparkles",
         "on": "minecraft",
-        "file": "page/tab.html"
+        "file": "page/tab.html",
+        "fallback": true
       }
     ],
     "actions": [
@@ -79,7 +95,7 @@
       }
     ]
   },
-  "version": "1.2.0",
+  "version": "1.3.0",
   "author": "Hostwerk",
   "homepage": "https://github.com/Passimoritz/hostwerk-ext-motd-studio",
   "license": "MIT",

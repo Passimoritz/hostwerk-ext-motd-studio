@@ -70,3 +70,55 @@ test('Symbol-Zuschnitt: quadratisch, mittig, Zoom und Verschiebung bleiben im Bi
   assert.deepStrictEqual(M.crop(200, 100, 2, -1, 1), { sx: 0, sy: 50, size: 50 });
   assert.deepStrictEqual(M.crop(200, 100, 1, 5, 0), { sx: 100, sy: 0, size: 100 }, 'Verschiebung begrenzt');
 });
+
+/* ---------- 1.3: Platzhalter, Verläufe, MiniMessage, Varianten ---------- */
+test('Platzhalter werden eingesetzt, unbekannte bleiben stehen und werden gemeldet', () => {
+  const now = new Date(2026, 9, 21, 9, 5).getTime(); // Mittwoch
+  const v = M.values({ name: 'Survival §cX', version: '1.21.4', typeLabel: 'Paper', maxPlayers: 30, nextRestart: new Date(2026, 9, 21, 4 + 20, 0).getTime() }, now, 'de');
+  assert.strictEqual(M.resolve('{name} {version} {type} {max} {date} {time} {weekday}', v), 'Survival cX 1.21.4 Paper 30 21.10.2026 09:05 Mittwoch');
+  assert.strictEqual(v.restart, 'Do 00:00', 'nicht heute → Wochentag kurz + Uhrzeit');
+  assert.strictEqual(M.values({ nextRestart: new Date(2026, 9, 21, 22, 30).getTime() }, now, 'de').restart, 'heute 22:30');
+  assert.strictEqual(M.values({}, now, 'en').restart, 'not planned');
+  assert.strictEqual(M.resolve('{online} {name}', { name: 'A' }), '{online} A');
+  assert.deepStrictEqual(M.unknownPlaceholders('{nme} {name}'), ['nme']);
+  assert.ok(M.hasPlaceholders('§a{restart}')); assert.ok(!M.hasPlaceholders('kein {x}'));
+});
+
+test('Nächster Neustart kommt aus Hostwerks Aufgaben (nur eingeschaltete mc-restart dieses Servers)', () => {
+  const tasks = { list: [
+    { enabled: true, action: { type: 'mc-restart', target: 'a' }, nextRun: 500 },
+    { enabled: true, action: { type: 'mc-restart', target: 'a' }, nextRun: 300 },
+    { enabled: false, action: { type: 'mc-restart', target: 'a' }, nextRun: 100 },
+    { enabled: true, action: { type: 'mc-backup', target: 'a' }, nextRun: 50 },
+    { enabled: true, action: { type: 'mc-restart', target: 'b' }, nextRun: 10 },
+  ] };
+  assert.strictEqual(M.nextRestart(tasks, 'a'), 300);
+  assert.strictEqual(M.nextRestart(tasks, 'c'), null);
+  assert.strictEqual(M.nextRestart(null, 'a'), null);
+});
+
+test('Verlauf: nur die 16 Minecraft-Farben, ein Code je Farbwechsel, Leerzeichen ohne Code', () => {
+  assert.strictEqual(M.nearest('#ff0000'), '4'); assert.strictEqual(M.nearest('#ff6060'), 'c');
+  assert.strictEqual(M.nearest('#000000'), '0');
+  const g = M.gradient('Hallo Welt', '#ffaa00', '#5555ff', 'l');
+  assert.strictEqual(M.plain(g), 'Hallo Welt');
+  assert.ok(g.startsWith('§6§l'));
+  assert.ok(/§9§l[^§]*t§r$/.test(g), g);
+  assert.ok(!/§[0-9a-f]§l /.test(g), 'Leerzeichen bekommen keinen eigenen Code');
+  assert.strictEqual(M.gradient('', '#000000', '#ffffff'), '');
+});
+
+test('MiniMessage: Farben als Hex, Formate als Tags, Zeilen mit <newline>, < maskiert', () => {
+  assert.strictEqual(M.toMiniMessage('§a§lHi§r <x>\nZwei'), '<#55ff55><bold>Hi</bold></#55ff55><#aaaaaa> \\<x></#aaaaaa><newline><#aaaaaa>Zwei</#aaaaaa>');
+});
+
+test('Varianten: der Reihe nach, leere übersprungen', () => {
+  assert.deepStrictEqual(M.nextVariant(['a', '', 'c'], 0), { index: 2, text: 'c' });
+  assert.deepStrictEqual(M.nextVariant(['a', '', 'c'], 2), { index: 0, text: 'a' });
+  assert.deepStrictEqual(M.nextVariant(['', ''], 0), { index: 0, text: '' });
+});
+
+test('Neue Vorlagen mit Platzhaltern', () => {
+  assert.ok(M.hasPlaceholders(M.template('info', '{name}', 'de')));
+  assert.ok(M.template('today', 'X', 'en').startsWith('§a§lX'));
+});

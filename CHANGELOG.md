@@ -1,3 +1,10 @@
+## 1.3.0
+
+- Section right in the overview of every Minecraft server (Hostwerk with SDK 3.2): preview like in the server list, “Edit” opens the editor there, “Big editor” opens the page. The tab stays only as a fallback for older Hostwerk versions. / Abschnitt direkt in der Übersicht jedes Minecraft-Servers (Hostwerk mit SDK 3.2): Vorschau wie in der Serverliste, „Bearbeiten“ klappt den Editor dort auf, „Großer Editor“ öffnet die Seite. Der Reiter bleibt nur als Rückfall für ältere Hostwerk-Versionen.
+- Placeholders {name} {version} {type} {max} {date} {time} {weekday} {restart} – filled in when saving and on “Restart now” (Minecraft reads the description only at start). / Platzhalter – eingesetzt beim Speichern und bei „Jetzt neu starten“ (Minecraft liest die Beschreibung nur beim Start).
+- Gradients over the 16 Minecraft colours, “Copy as MiniMessage” for MiniMOTD & co., up to 5 variants that can switch on “Restart now”, preview dark and light, two new templates. / Verläufe über die 16 Minecraft-Farben, „Als MiniMessage kopieren“, bis zu 5 Varianten (Wechsel bei „Jetzt neu starten“), Vorschau dunkel und hell, zwei neue Vorlagen.
+- New permissions `read:tasks` (next restart) and `storage` (templates and variants). / Neue Rechte `read:tasks` (nächster Neustart) und `storage` (Vorlagen und Varianten).
+
 ## 1.2.0
 
 - Server icon: pick a picture, crop it (zoom, move) and save it as 64 × 64 PNG – shown in the preview right away. / Server-Symbol: Bild wählen, zuschneiden (vergrößern, verschieben) und als PNG mit 64 × 64 Pixeln speichern – sofort in der Vorschau.
