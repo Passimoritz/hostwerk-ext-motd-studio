@@ -14,6 +14,7 @@ Eine offizielle [Hostwerk](https://github.com/Passimoritz/hostwerk-public)-Erwei
 
 ## Funktionen
 
+- **Wo:** Minecraft-Server → Übersicht (Abschnitt) – seit 1.4.0 ohne eigenen Seitenleisten-Eintrag; die ganze Seite bleibt unter Erweiterungen → Öffnen
 - Farbknöpfe (§0–§f, jeder mit seinem Namen für Bildschirmleser) und Formate (fett, kursiv, unterstrichen, durchgestrichen, verschleiert §k, zurücksetzen) – fasst eine Auswahl ein
 - **Platzhalter** `{name}` `{version}` `{type}` `{max}` `{date}` `{time}` `{weekday}` `{restart}` (nächster geplanter Neustart aus Hostwerks Aufgaben). Ehrlich: Minecraft liest die Beschreibung nur beim Start – das Studio setzt die Werte beim Speichern und bei „Jetzt neu starten“ ein. „Gerade online“ zeigt die Serverliste ohnehin daneben, deshalb gibt es dafür keinen Platzhalter.
 - **Farbverläufe** über die 16 Minecraft-Farben (mehr kennt `server.properties` nicht) und **„Als MiniMessage kopieren“** für echte Hex-Farben mit Plugins wie MiniMOTD auf Paper

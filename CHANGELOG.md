@@ -1,3 +1,8 @@
+## 1.4.0
+
+- Lives where it belongs: Minecraft server → Overview (section) – no own sidebar entry any more (Hostwerk 3.0+); the full page stays under Extensions → Open and can be pinned in the sidebar settings. / Steckt jetzt dort, wo sie hingehört: Minecraft-Server → Übersicht (Abschnitt) – kein eigener Seitenleisten-Eintrag mehr (Hostwerk 3.0+); die ganze Seite bleibt unter Erweiterungen → Öffnen und lässt sich in den Seitenleisten-Einstellungen anheften.
+- The section has the role “motd”: Hostwerk then leaves out its own card “How players see your server” – one preview instead of two. / Der Abschnitt hat die Rolle „motd“: Hostwerk lässt dann seine eigene Karte „So sehen Spieler deinen Server“ weg – eine Vorschau statt zwei.
+
 ## 1.3.0
 
 - Section right in the overview of every Minecraft server (Hostwerk with SDK 3.2): preview like in the server list, “Edit” opens the editor there, “Big editor” opens the page. The tab stays only as a fallback for older Hostwerk versions. / Abschnitt direkt in der Übersicht jedes Minecraft-Servers (Hostwerk mit SDK 3.2): Vorschau wie in der Serverliste, „Bearbeiten“ klappt den Editor dort auf, „Großer Editor“ öffnet die Seite. Der Reiter bleibt nur als Rückfall für ältere Hostwerk-Versionen.

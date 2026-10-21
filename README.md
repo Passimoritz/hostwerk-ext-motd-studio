@@ -14,6 +14,7 @@ An official [Hostwerk](https://github.com/Passimoritz/hostwerk-public) extension
 
 ## Features
 
+- **Where:** Minecraft server → Overview (section) – no own sidebar entry since 1.4.0; the full page stays under Extensions → Open
 - Colour buttons (§0–§f, each with its name for screen readers) and formats (bold, italic, underline, strikethrough, obfuscated §k, reset) – wraps a selection
 - **Placeholders** `{name}` `{version}` `{type}` `{max}` `{date}` `{time}` `{weekday}` `{restart}` (next planned restart from Hostwerk's tasks). Honestly: Minecraft only reads the description at start – the studio fills in the values when saving and on “Restart now”. Players online are shown next to it in the server list anyway, so there is no placeholder for that.
 - **Gradients** over Minecraft's 16 colours (that is all `server.properties` knows) and **“Copy as MiniMessage”** for real hex colours with plugins like MiniMOTD on Paper
