@@ -191,8 +191,8 @@ function renderEditor() {
   Hostwerk.render('#editor', html`
     <div class="grid grid-2 motd-grid">
       <div class="card card-pad stack">
-        <div class="row motd-variants" role="tablist" aria-label="${t('variants')}">
-          ${p.drafts.map((_, i) => html`<button type="button" role="tab" class="${`btn sm ${i === p.edit ? 'primary' : 'ghost'}`}" aria-selected="${i === p.edit ? 'true' : 'false'}" data-variant="${i}">${t('variant', { n: i + 1 })}${i === p.index ? ' ●' : ''}</button>`)}
+        <div class="row motd-variants">
+          <span class="row" role="tablist" aria-label="${t('variants')}">${p.drafts.map((_, i) => html`<button type="button" role="tab" class="${`btn sm ${i === p.edit ? 'primary' : 'ghost'}`}" aria-selected="${i === p.edit ? 'true' : 'false'}" data-variant="${i}">${t('variant', { n: i + 1 })}${i === p.index ? ' ●' : ''}</button>`)}</span>
           ${p.drafts.length < MAX_VARIANTS ? html`<button type="button" class="btn sm ghost" id="add-variant" title="${t('variantAdd')}" aria-label="${t('variantAdd')}">+</button>` : ''}
           ${p.drafts.length > 1 ? html`<button type="button" class="btn sm ghost" id="del-variant">${t('variantRemove')}</button>` : ''}
         </div>

@@ -1,3 +1,7 @@
+## 1.4.1
+
+- Variant tabs: “+” and “Remove” sit next to the tab list instead of inside it (correct for screen readers) / Varianten-Reiter: „+“ und „Entfernen“ stehen neben der Reiterleiste statt darin (richtig für Bildschirmleser)
+
 ## 1.4.0
 
 - Lives where it belongs: Minecraft server → Overview (section) – no own sidebar entry any more (Hostwerk 3.0+); the full page stays under Extensions → Open and can be pinned in the sidebar settings. / Steckt jetzt dort, wo sie hingehört: Minecraft-Server → Übersicht (Abschnitt) – kein eigener Seitenleisten-Eintrag mehr (Hostwerk 3.0+); die ganze Seite bleibt unter Erweiterungen → Öffnen und lässt sich in den Seitenleisten-Einstellungen anheften.

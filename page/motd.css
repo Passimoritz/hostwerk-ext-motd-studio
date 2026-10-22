@@ -19,7 +19,7 @@
 .motd-box.motd-light { background: #f2f2f2; }
 .motd-box.motd-light .motd-name { color: #1e1e1e; }
 .motd-box.motd-light .motd-players { color: #555; }
-.motd-variants { flex-wrap: wrap; gap: var(--sp-1); }
+.motd-variants, .motd-variants > [role="tablist"] { flex-wrap: wrap; gap: var(--sp-1); }
 .motd-tools .label { margin: 0 var(--sp-1) 0 0; }
 .motd-more input[type="color"] { width: 32px; height: 28px; padding: 0; border: 1px solid var(--line); border-radius: var(--r-sm); background: none; cursor: pointer; }
 .motd-embed { padding: 0; }
