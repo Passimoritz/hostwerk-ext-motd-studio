@@ -1,3 +1,7 @@
+## 1.5.0
+
+- Needs the extension “Minecraft servers” (Hostwerk 3.1 moved Minecraft out of the core) – Hostwerk installs it along with this one. / Braucht die Erweiterung „Minecraft-Server“ (Hostwerk 3.1 hat Minecraft aus dem Kern ausgelagert) – Hostwerk installiert sie mit.
+
 ## 1.4.1
 
 - Variant tabs: “+” and “Remove” sit next to the tab list instead of inside it (correct for screen readers) / Varianten-Reiter: „+“ und „Entfernen“ stehen neben der Reiterleiste statt darin (richtig für Bildschirmleser)
