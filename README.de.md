@@ -2,6 +2,8 @@
 
 # MOTD-Studio
 
+> **Aufgegangen in „Minecraft-Server“ (1.1):** Der MOTD-Abschnitt steht weiter in der Übersicht jedes Servers, der große Editor ist der Reiter „MOTD-Studio“ in der Serverliste. Hostwerk installiert die neue Fassung von selbst und entfernt diese Erweiterung; Varianten bleiben. Hier gibt es keine neuen Fassungen mehr.
+
 Die Beschreibung deines Minecraft-Servers in der Serverliste gestalten – mit Farben, Verläufen, Platzhaltern, Varianten und Vorschau wie im Spiel. Direkt in der Übersicht jedes Minecraft-Servers.
 
 [English](README.md) · Offizielle [Hostwerk](https://github.com/Passimoritz/hostwerk-public)-Erweiterung (läuft abgeschottet, ab Hostwerk 3.1)

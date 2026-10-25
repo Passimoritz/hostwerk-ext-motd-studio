@@ -2,6 +2,8 @@
 
 # MOTD studio
 
+> **Merged into “Minecraft servers” (1.1):** the MOTD section stays in the overview of every server, the big editor is the tab “MOTD studio” in the server list. Hostwerk installs the new version by itself and removes this extension; variants stay. There are no new versions here.
+
 Design your Minecraft server's description in the server list – with colours, gradients, placeholders, variants and a preview like in the game. Right in the overview of every Minecraft server.
 
 [Deutsch](README.de.md) · An official [Hostwerk](https://github.com/Passimoritz/hostwerk-public) extension (runs sandboxed, Hostwerk 3.1 or newer)
