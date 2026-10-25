@@ -4,7 +4,13 @@
 
 Die Beschreibung deines Minecraft-Servers in der Serverliste gestalten – mit Farben, Verläufen, Platzhaltern, Varianten und Vorschau wie im Spiel. Direkt in der Übersicht jedes Minecraft-Servers.
 
-Eine offizielle [Hostwerk](https://github.com/Passimoritz/hostwerk-public)-Erweiterung und ein **Beispiel für eine Erweiterung, die Hostwerk selbst verändert** (SDK 2.2, heute 3.2):
+[English](README.md) · Offizielle [Hostwerk](https://github.com/Passimoritz/hostwerk-public)-Erweiterung (läuft abgeschottet, ab Hostwerk 3.1)
+
+![Bildschirmfoto](docs/screenshot.de.png)
+
+## Was sie kann
+
+Dazu ein **Beispiel für eine Erweiterung, die Hostwerk selbst verändert**:
 
 - **Abschnitt in der Übersicht jedes Minecraft-Servers** (`contributes.sections`, `on: "mc.overview"`, ab Hostwerk mit SDK 3.2) – Vorschau wie in der Serverliste, „Bearbeiten“ klappt den Editor dort auf. Hostwerk übergibt den Server als `Hostwerk.context`.
 - **Rückfall für ältere Hostwerk-Versionen:** der bisherige Reiter (`contributes.tabs` mit `"fallback": true`) erscheint nur dort, wo es noch keine Abschnitte gibt.
@@ -12,7 +18,7 @@ Eine offizielle [Hostwerk](https://github.com/Passimoritz/hostwerk-public)-Erwei
 - **Ändert eine Hostwerk-Einstellung** (`Hostwerk.put('/mc/servers/<id>/properties', { motd })`) mit dem Recht `change:minecraft` – Hostwerk fragt vor jeder Änderung.
 - **Reiter zeichnet Hostwerk** (`page.tabs`), Hostwerks eigene Design-Klassen (`card`, `btn primary`, `select` …).
 
-## Funktionen
+## Was sie kann
 
 - **Wo:** Minecraft-Server → Übersicht (Abschnitt) – seit 1.4.0 ohne eigenen Seitenleisten-Eintrag; die ganze Seite bleibt unter Erweiterungen → Öffnen
 - Farbknöpfe (§0–§f, jeder mit seinem Namen für Bildschirmleser) und Formate (fett, kursiv, unterstrichen, durchgestrichen, verschleiert §k, zurücksetzen) – fasst eine Auswahl ein
@@ -29,6 +35,12 @@ Eine offizielle [Hostwerk](https://github.com/Passimoritz/hostwerk-public)-Erwei
 - Tabelle aller Farbcodes
 - Fehlerzustand mit „Erneut versuchen“; Abfragen pausieren bei verstecktem Reiter; steht unter „Server“ bei Minecraft; andere Erweiterungen dürfen Reiter ergänzen – etwa einen Reiter für die Bedrock-MOTD aus der Bedrock-Brücke
 
+## Installieren
+
+In Hostwerk: **Erweiterungen → Entdecken** und „Installieren“ klicken. Oder von Hand: die Zip-Datei aus dem [neuesten Release](../../releases/latest) laden → *Erweiterungen → Hinzufügen → Datei*.
+
+Sie läuft abgeschottet in Hostwerk – sie bekommt nur die Rechte, die sie nennt, und Hostwerk zeigt sie vor dem Installieren.
+
 ## Rechte
 
 | Recht | Wofür |
@@ -43,4 +55,6 @@ Eine offizielle [Hostwerk](https://github.com/Passimoritz/hostwerk-public)-Erwei
 
 Logik in `page/lib.js` (ohne DOM), Abfragen und Fehlerzustand in `page/live.js`, Tests: `node --test tests/*.test.js`. Prüfung: `node check.js . --strict` (Hostwerk-SDK). Das Release packt alles außer dem Repo-Werkzeug.
 
-Lizenz: MIT
+## Lizenz
+
+MIT
